@@ -1,0 +1,215 @@
+{
+  "model_definitions": [
+    {
+      "name": "ImageClassifier",
+      "type": "image_classification",
+      "description": "Configuração para modelo de classificação de imagens.",
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "Image",
+          "format": "Grayscale | Color (RGB/BGR)",
+          "size": "224x224",
+          "description": "Imagem de entrada para classificação."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "class_labels",
+          "type": "String",
+          "description": "Lista de rótulos de classe previstos.",
+          "format": "Array de Strings"
+        },
+        {
+          "name": "probabilities",
+          "type": "Dictionary",
+          "description": "Probabilidades para cada classe.",
+          "format": "Dicionário de String para Float"
+        }
+      ],
+      "best_practices": [
+        "Pré-processamento: normalização, redimensionamento para tamanho do modelo.",
+        "Use dataset de treinamento diversificado para evitar overfitting.",
+        "Valide com dataset de validação independente."
+      ]
+    },
+    {
+      "name": "TextClassifier",
+      "type": "text_classification",
+      "description": "Configuração para modelo de classificação de texto.",
+      "inputs": [
+        {
+          "name": "input_text",
+          "type": "String",
+          "description": "Texto de entrada para classificação."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "class_label",
+          "type": "String",
+          "description": "Rótulo de classe previsto.",
+          "format": "String"
+        },
+        {
+          "name": "probabilities",
+          "type": "Dictionary",
+          "description": "Probabilidades para cada classe.",
+          "format": "Dicionário de String para Float"
+        }
+      ],
+      "best_practices": [
+        "Limpeza: remover pontuação, caracteres especiais, converter para minúsculas.",
+        "Tokenização e vetorização antes de alimentar o modelo.",
+        "Balanceie classes no dataset para evitar viés."
+      ]
+    },
+    {
+      "name": "ObjectDetection",
+      "type": "object_detection",
+      "description": "Configuração para detecção de objetos em imagens.",
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "Image",
+          "format": "Color (RGB)",
+          "size": "Variável (ex: 416x416)",
+          "description": "Imagem de entrada para detecção."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "detected_boxes",
+          "type": "Array",
+          "description": "Caixas delimitadoras.",
+          "format": "Array de [x, y, largura, altura]"
+        },
+        {
+          "name": "detected_labels",
+          "type": "Array",
+          "description": "Rótulos de classe.",
+          "format": "Array de Strings"
+        },
+        {
+          "name": "confidences",
+          "type": "Array",
+          "description": "Confianças das detecções.",
+          "format": "Array de Floats"
+        }
+      ],
+      "best_practices": [
+        "Otimize para tamanho de imagem e número de classes esperados.",
+        "Use Non-Maximum Suppression (NMS) para remover detecções duplicadas.",
+        "Ajuste limiares de confiança para balancear precisão e recall."
+      ]
+    },
+    {
+      "name": "SemanticSegmentation",
+      "type": "semantic_segmentation",
+      "description": "Configuração para segmentação semântica de imagens.",
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "Image",
+          "format": "Color (RGB)",
+          "size": "Variável (ex: 512x512)",
+          "description": "Imagem de entrada para segmentação."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "segmentation_map",
+          "type": "Image",
+          "description": "Mapa de segmentação por pixel.",
+          "format": "Grayscale (mapa de classes)"
+        },
+        {
+          "name": "confidence_map",
+          "type": "Image",
+          "description": "Mapa de confiança por pixel.",
+          "format": "Grayscale (mapa de confiança)"
+        }
+      ],
+      "best_practices": [
+        "Anotações precisas e consistentes para cada pixel.",
+        "Use data augmentation para variabilidade nas imagens.",
+        "Otimize pós-inferência para visualização do mapa.",
+        "Priorize arquiteturas leves (DeepLabv3+ com MobileNetV2) para tempo real."
+      ]
+    },
+    {
+      "name": "RecommendationSystem",
+      "type": "recommendation_system",
+      "description": "Configuração para sistema de recomendação.",
+      "inputs": [
+        {
+          "name": "user_id",
+          "type": "Integer",
+          "format": "Scalar",
+          "size": "1",
+          "description": "ID único do usuário."
+        },
+        {
+          "name": "context_data",
+          "type": "Dictionary",
+          "format": "JSON",
+          "size": "Variable",
+          "description": "Dados contextuais adicionais."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "recommended_items",
+          "type": "Array",
+          "description": "IDs de itens recomendados.",
+          "format": "Array de Strings"
+        },
+        {
+          "name": "scores",
+          "type": "Array",
+          "description": "Pontuações de relevância.",
+          "format": "Array de Floats"
+        }
+      ],
+      "best_practices": [
+        "Personalize com base no histórico e contexto.",
+        "Atualize regularmente com novos dados.",
+        "Considere diversidade e novidade das recomendações.",
+        "Implemente testes A/B para avaliar eficácia."
+      ]
+    }
+  ],
+  "performance_optimization_strategies": [
+    "**Quantização**: Reduza a precisão dos pesos e ativações do modelo (float32 → float16/int8) para diminuir tamanho e acelerar inferência.",
+    "**Batching**: Execute inferências em lotes para aproveitar melhor o hardware do dispositivo.",
+    "**Neural Engine**: Configure o modelo para utilizar o Neural Engine (dispositivos A11 Bionic+) para máxima performance.",
+    "**Redução de Overheads**: Minimize cópias de dados e operações de pré/pós-processamento externas ao Core ML.",
+    "**Perfil de Performance**: Use Instruments no Xcode para perfilar performance do aplicativo com Core ML."
+  ],
+  "latency_reduction_best_practices": [
+    "**Otimização do Modelo**: Use modelos menores e eficientes. Explore arquiteturas otimizadas para dispositivos.",
+    "**Quantização**: Reduza precisão dos pesos (float32 → float16/int8) para diminuir tamanho e acelerar inferência no Neural Engine.",
+    "**Pré-processamento Eficiente**: Minimize complexidade do pré-processamento. Execute no dispositivo quando possível.",
+    "**Uso do Neural Engine**: Configure Core ML para aproveitar Neural Engine da Apple para aceleração significativa.",
+    "**Inferência em Lote (Batching)**: Agrupe múltiplas entradas para reduzir overhead por inferência.",
+    "**Warm-up do Modelo**: Execute 1-2 inferências 'falsas' no início para carregar modelo na memória e otimizar pipeline.",
+    "**Evitar Cópias de Dados Desnecessárias**: Minimize transferência CPU ↔ GPU/Neural Engine. Mantenha dados no mesmo domínio de memória.",
+    "**Assincronia e Threading**: Execute inferência em thread secundária para não bloquear UI principal.",
+    "**Perfil e Análise**: Use Instruments do Xcode para identificar gargalos específicos na pipeline de inferência.",
+    "**Simplificação do Modelo**: Para latência crítica, use pruning, distillation ou NAS para equilíbrio desempenho-eficiência."
+  ],
+  "common_errors_and_solutions": [
+    {
+      "error": "Input Shape Mismatch",
+      "solution": "Verifique dimensões de entrada (ex: imagem 224x224) e garanta correspondência com especificações."
+    },
+    {
+      "error": "Model Not Found/Loaded",
+      "solution": "Verifique caminho do .mlmodel e permissões. Certifique-se que modelo está no projeto Xcode."
+    },
+    {
+      "error": "Out Of Memory",
+      "solution": "Otimize tamanho (quantização), processe em lotes menores, use GPU/NPU se disponível."
+    }
+  ]
+}
