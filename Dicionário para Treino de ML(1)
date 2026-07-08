@@ -1,0 +1,125 @@
+{
+  "runSettings": {
+    "temperature": 0.25,
+    "model": "models/antigravity-preview-05-2026",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "enableCodeExecution": true,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": true,
+    "googleSearch": {
+    },
+    "enableImageSearch": false,
+    "enableGoogleMaps": false,
+    "enableAgentThinkingSummariesControl": false,
+    "enableAgentVisualizationControl": false,
+    "enableAgentCollaborativePlanningControl": false,
+    "environmentMode": "new"
+  },
+  "systemInstruction": {
+  },
+  "chunkedPrompt": {
+    "chunks": [{
+      "text": "gerar um dicionario para treinar o algoritmo da apple ml para criar codigos nas princiipais linguagens \n",
+      "role": "user",
+      "tokenCount": 27,
+      "createTime": "2026-07-08T07:34:37.507Z"
+    }, {
+      "text": "[\n  {\n    \"instruction\": \"Print \u0027Hello, World!\u0027 to the console\",\n    \"language\": \"Swift\",\n    \"code\": \"print(\\\"Hello, World!\\\")\"\n  },\n  {\n    \"instruction\": \"Define a function that adds two numbers\",\n    \"language\": \"Python\",\n    \"code\": \"def add_numbers(a, b):\\n    return a + b\"\n  },\n  {\n    \"instruction\": \"Create an array of strings and iterate through them\",\n    \"language\": \"JavaScript\",\n    \"code\": \"const items \u003d [\u0027apple\u0027, \u0027banana\u0027, \u0027cherry\u0027];\\nitems.forEach(item \u003d\u003e {\\n  console.log(item);\\n});\"\n  },\n  {\n    \"instruction\": \"Declare a class for a Person with name and age\",\n    \"language\": \"Java\",\n    \"code\": \"public class Person {\\n    String name;\\n    int age;\\n    public Person(String name, int age) {\\n        this.name \u003d name;\\n        this.age \u003d age;\\n    }\\n}\"\n  },\n  {\n    \"instruction\": \"Find the maximum value in a vector of integers\",\n    \"language\": \"C++\",\n    \"code\": \"#include \u003cvector\u003e\\n#include \u003calgorithm\u003e\\nint findMax(std::vector\u003cint\u003e v) {\\n    return *std::max_element(v.begin(), v.end());\\n}\"\n  },\n  {\n    \"instruction\": \"Perform an asynchronous HTTP GET request\",\n    \"language\": \"Swift\",\n    \"code\": \"func fetchData(from url: URL) async throws -\u003e Data {\\n    let (data, _) \u003d try await URLSession.shared.data(from: url)\\n    return data\\n}\"\n  },\n  {\n    \"instruction\": \"Filter even numbers from a list\",\n    \"language\": \"Python\",\n    \"code\": \"numbers \u003d [1, 2, 3, 4, 5, 6]\\nevens \u003d [x for x in numbers if x % 2 \u003d\u003d 0]\"\n  },\n  {\n    \"instruction\": \"Map an array to create a list of square numbers\",\n    \"language\": \"JavaScript\",\n    \"code\": \"const nums \u003d [1, 2, 3, 4];\\nconst squares \u003d nums.map(n \u003d\u003e n * n);\"\n  },\n  {\n    \"instruction\": \"Sort a list of strings alphabetically\",\n    \"language\": \"Kotlin\",\n    \"code\": \"val fruits \u003d listOf(\\\"banana\\\", \\\"apple\\\", \\\"cherry\\\")\\nval sortedFruits \u003d fruits.sorted()\"\n  },\n  {\n    \"instruction\": \"Write a string to a file\",\n    \"language\": \"Go\",\n    \"code\": \"import \\\"os\\\"\\nfunc writeFile(filename string, content string) error {\\n    return os.WriteFile(filename, []byte(content), 0644)\\n}\"\n  },\n  {\n    \"instruction\": \"Define a simple REST API endpoint using Express\",\n    \"language\": \"JavaScript\",\n    \"code\": \"const express \u003d require(\u0027express\u0027);\\nconst app \u003d express();\\napp.get(\u0027/api\u0027, (req, res) \u003d\u003e {\\n  res.json({ message: \u0027Hello World\u0027 });\\n});\"\n  },\n  {\n    \"instruction\": \"Check if a key exists in a dictionary\",\n    \"language\": \"Swift\",\n    \"code\": \"let dict \u003d [\\\"key\\\": \\\"value\\\"]\\nif let value \u003d dict[\\\"key\\\"] {\\n    print(value)\\n}\"\n  },\n  {\n    \"instruction\": \"Calculate the factorial of a number using recursion\",\n    \"language\": \"Python\",\n    \"code\": \"def factorial(n):\\n    if n \u003d\u003d 0:\\n        return 1\\n    return n * factorial(n - 1)\"\n  },\n  {\n    \"instruction\": \"Create a struct to represent a Point in 2D space\",\n    \"language\": \"C#\",\n    \"code\": \"public struct Point {\\n    public int X { get; set; }\\n    public int Y { get; set; }\\n    public Point(int x, int y) {\\n        X \u003d x;\\n        Y \u003d y;\\n    }\\n}\"\n  },\n  {\n    \"instruction\": \"Implement a Singleton pattern\",\n    \"language\": \"Java\",\n    \"code\": \"public class Singleton {\\n    private static Singleton instance;\\n    private Singleton() {}\\n    public static Singleton getInstance() {\\n        if (instance \u003d\u003d null) instance \u003d new Singleton();\\n        return instance;\\n    }\\n}\"\n  }\n]",
+      "role": "model",
+      "finishReason": "STOP",
+      "tokenCount": 1059,
+      "isJson": true,
+      "parts": [{
+        "text": "[\n  {\n    \"instruction\": \"Print \u0027Hello, World!\u0027 to the console\",\n    "
+      }, {
+        "text": "\"language\": \"Swift\",\n    \"code\": \"print(\\\"Hello, World!\\\")\"\n  },"
+      }, {
+        "text": "\n  {\n    \"instruction\": \"Define a function that adds two numbers\",\n    \"language\": \"Python"
+      }, {
+        "text": "\",\n    \"code\": \"def add_numbers(a, b):\\n    return a + b\"\n  },\n  "
+      }, {
+        "text": "{\n    \"instruction\": \"Create an array of strings and iterate through them\",\n    \"language\": \"JavaScript\",\n    \""
+      }, {
+        "text": "code\": \"const items \u003d [\u0027apple\u0027, \u0027banana\u0027, \u0027cherry\u0027];\\nitems.forEach(item \u003d\u003e {\\"
+      }, {
+        "text": "n  console.log(item);\\n});\"\n  },\n  {\n    \"instruction\": \"Declare"
+      }, {
+        "text": " a class for a Person with name and age\",\n    \"language\": \"Java\",\n    \"code\": \"public"
+      }, {
+        "text": " class Person {\\n    String name;\\n    int age;\\n    public Person(String name, int age) {\\n        this"
+      }, {
+        "text": ".name \u003d name;\\n        this.age \u003d age;\\n    }\\n}\"\n  },\n  {"
+      }, {
+        "text": "\n    \"instruction\": \"Find the maximum value in a vector of integers\",\n    \"language\": \"C++\",\n    "
+      }, {
+        "text": "\"code\": \"#include \u003cvector\u003e\\n#include \u003calgorithm\u003e\\nint findMax(std::vector\u003cint\u003e"
+      }, {
+        "text": " v) {\\n    return *std::max_element(v.begin(), v.end());\\n}\""
+      }, {
+        "text": "\n  },\n  {\n    \"instruction\": \"Perform an asynchronous HTTP GET request\",\n    \"language\": \"Swift"
+      }, {
+        "text": "\",\n    \"code\": \"func fetchData(from url: URL) async throws -\u003e Data {\\n    let ("
+      }, {
+        "text": "data, _) \u003d try await URLSession.shared.data(from: url)\\n    return data\\n}\"\n  },\n  "
+      }, {
+        "text": "{\n    \"instruction\": \"Filter even numbers from a list\",\n    \"language\": \"Python\",\n    \"code"
+      }, {
+        "text": "\": \"numbers \u003d [1, 2, 3, 4, 5, 6]\\nevens"
+      }, {
+        "text": " \u003d [x for x in numbers if x % 2 \u003d\u003d 0]\"\n  },\n  {\n    \"instruction\": \""
+      }, {
+        "text": "Map an array to create a list of square numbers\",\n    \"language\": \"JavaScript\",\n    \"code\": \"const nums"
+      }, {
+        "text": " \u003d [1, 2, 3, 4];\\nconst squares \u003d nums.map(n \u003d\u003e n * n);\""
+      }, {
+        "text": "\n  },\n  {\n    \"instruction\": \"Sort a list of strings alphabetically\",\n    \"language\":"
+      }, {
+        "text": " \"Kotlin\",\n    \"code\": \"val fruits \u003d listOf(\\\"banana\\\", \\\"apple\\\", \\\"cherry\\\")\\n"
+      }, {
+        "text": "val sortedFruits \u003d fruits.sorted()\"\n  },\n  {\n    \"instruction\": \"Write a string to a file\","
+      }, {
+        "text": "\n    \"language\": \"Go\",\n    \"code\": \"import \\\"os\\\"\\nfunc writeFile(filename string"
+      }, {
+        "text": ", content string) error {\\n    return os.WriteFile(filename, []byte(content), 0644"
+      }, {
+        "text": ")\\n}\"\n  },\n  {\n    \"instruction\": \"Define a simple REST API endpoint using Express\",\n    \""
+      }, {
+        "text": "language\": \"JavaScript\",\n    \"code\": \"const express \u003d require(\u0027express\u0027);\\nconst app \u003d express"
+      }, {
+        "text": "();\\napp.get(\u0027/api\u0027, (req, res) \u003d\u003e {\\n  res.json({ message: \u0027Hello World"
+      }, {
+        "text": "\u0027 });\\n});\"\n  },\n  {\n    \"instruction\": \"Check if a key exists in a dictionary\",\n    \"language\": \"Swift\",\n    \"code\": \"let dict \u003d [\\\"key\\\": \\\"value\\\"]\\nif let"
+      }, {
+        "text": " value \u003d dict[\\\"key\\\"] {\\n    print(value)\\n}\"\n  },\n  {\n    \"instruction\": \""
+      }, {
+        "text": "Calculate the factorial of a number using recursion\",\n    \"language\": \"Python\",\n    \"code\": \"def factorial(n):\\n"
+      }, {
+        "text": "    if n \u003d\u003d 0:\\n        return 1\\n    return n * factorial(n - 1)\"\n  },"
+      }, {
+        "text": "\n  {\n    \"instruction\": \"Create a struct to represent a Point in 2D space\",\n    \""
+      }, {
+        "text": "language\": \"C#\",\n    \"code\": \"public struct Point {\\n    public int X { get; set; }\\n"
+      }, {
+        "text": "    public int Y { get; set; }\\n    public Point(int x, int y) {\\n        X \u003d x;\\"
+      }, {
+        "text": "n        Y \u003d y;\\n    }\\n}\"\n  },\n  {\n    \"instruction\": \"Implement"
+      }, {
+        "text": " a Singleton pattern\",\n    \"language\": \"Java\",\n    \"code\": \"public class Singleton {\\n    private static Singleton"
+      }, {
+        "text": " instance;\\n    private Singleton() {}\\n    public static Singleton getInstance() {\\n        if (instance \u003d\u003d null)"
+      }, {
+        "text": " instance \u003d new Singleton();\\n        return instance;\\n    }\\n}\"\n  }\n]"
+      }, {
+        "text": "",
+        "thoughtSignature": "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"
+      }],
+      "createTime": "2026-07-08T07:34:42.010Z"
+    }],
+    "pendingInputs": [{
+      "text": "",
+      "role": "user"
+    }]
+  }
+}
